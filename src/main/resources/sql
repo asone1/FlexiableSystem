@@ -1,0 +1,91 @@
+create TABLE classInfo(
+    class_name Name not null,
+    class_id UUID not null DEFAULT uuid_generate_v1(),
+	PRIMARY KEY (class_id),
+	key_field UUID
+);
+create TABLE fieldInfo(
+    class_id UUID,
+    field_name Name not null,
+    field_id UUID not null DEFAULT uuid_generate_v1(),
+	PRIMARY KEY (field_id),
+    FOREIGN KEY (class_id) REFERENCES classInfo(class_id)
+);
+
+CREATE TABLE objects (
+    class_id UUID not null,
+    object_id UUID not null DEFAULT uuid_generate_v1(),
+    PRIMARY KEY (object_id),
+    FOREIGN KEY (class_id) REFERENCES classInfo(class_id)
+);
+
+CREATE TABLE condition (
+stringfield_id UUID,
+FOREIGN KEY (stringfield_id) REFERENCES stringFields(stringfield_id),
+
+)
+
+
+CREATE TABLE classfields (
+class_id UUID not null,
+FOREIGN KEY (class_id) REFERENCES classInfo(class_id),
+field_id UUID not null,
+FOREIGN KEY (field_id) REFERENCES fieldInfo(field_id)
+)
+
+/*updated*/
+CREATE TABLE stringFields (
+parent UUID,
+    field_id UUID,
+    stringfield_id UUID not null DEFAULT uuid_generate_v1(),
+    value text not null,
+    PRIMARY KEY (stringfield_id),
+    FOREIGN KEY (field_id) REFERENCES fieldInfo(field_id)
+);
+
+CREATE TABLE numberFields (
+    class_id UUID not null,
+    field_id UUID not null,
+    object_id UUID not null,
+    value Money not null,
+    PRIMARY KEY (class_id,field_id,object_id),
+    FOREIGN KEY (class_id) REFERENCES classInfo(class_id),
+    FOREIGN KEY (field_id) REFERENCES fieldInfo(field_id),
+    FOREIGN KEY (object_id) REFERENCES objects(object_id)
+);
+/*updated*/
+CREATE TABLE objectField (
+     field_id UUID not null,
+    object_id UUID not null DEFAULT uuid_generate_v1(),
+	parent UUID  not null,
+    FOREIGN KEY (field_id) REFERENCES fieldInfo(field_id)
+);
+
+CREATE TABLE objectFields (
+    class_id UUID not null,
+    object_id UUID not null,
+    relatedobject_id UUID not null,
+    PRIMARY KEY (class_id,relatedobject_id,object_id),
+    FOREIGN KEY (class_id) REFERENCES classInfo(class_id),
+    FOREIGN KEY (object_id) REFERENCES objects(object_id),
+    FOREIGN KEY (relatedobject_id) REFERENCES objects(object_id)
+);
+
+
+create TABLE Effect(
+    effect_id UUID DEFAULT uuid_generate_v1(),
+    name Name,
+    path varchar(20)
+);
+
+/* outdated
+CREATE TABLE stringFields (
+parent UUID,
+    class_id UUID not null,
+    field_id UUID not null,
+    object_id UUID not null,
+    value text not null,
+    PRIMARY KEY (class_id,field_id,object_id),
+    FOREIGN KEY (class_id) REFERENCES classInfo(class_id),
+    FOREIGN KEY (field_id) REFERENCES fieldInfo(field_id)
+);*/

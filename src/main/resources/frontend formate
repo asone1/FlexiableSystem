@@ -1,0 +1,12 @@
+//field map
+stringfield_id : fieldName
+field_id : fieldName
+
+//object information
+stringfield_id : stringfieldvalue
+
+//objects information
+[
+{stringfield_id : stringfieldvalue, ...},
+{stringfield_id : stringfieldvalue, ...},
+]

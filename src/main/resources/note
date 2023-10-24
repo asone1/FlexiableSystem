@@ -1,0 +1,92 @@
+on adding new data type for JDBC:
+JDBCConnector--> getColumnNames
+
+level of property of entity:
+1. class (classify attributes)
+2. field (attributes)
+3. object(data)
+
+*every object (= collection of fields) has id:
+    1. (ordered) seq ==> fields
+    2. (ordered) id ==> fields
+    3. (unordered) id ==> fields
+    4. (unordered) id ==> objects --> fields
+
+
+const fakeFieldMap = {
+    "id": "order number",
+    "uuid-11111": "customer",
+    "uuid-11112": {
+        "uuid-11113": "product",
+        "uuid-11114": "price",
+        "uuid-11115": "discount"
+    },
+    "uuid-11116": "note"
+}
+
+[
+{"bc72f5da-857f-412c-8f97-475f59ff4039":"2023-08-01",
+"651ca098-ac5a-44da-828e-27999d4cec7d":"Customer will fetch product on its own.",
+"04721fe4-5d10-11ee-af6e-002b67d98d9c":"{\"bd63d4f0-62b7-11ee-9172-002b67d98d9c\":\"GW0012-r\",\"a6865892-7577-4486-bdaf-60a958527a0d\":\"GW0012\"}",
+"9a4af664-703d-4b1a-aa6f-7cbf65fffa08":"Guess special",
+"978c72eb-39e3-4709-99a3-c313b1e03714":"1000"},
+
+{"7b71aa2b-7838-462d-8575-1682704d65e8":"2023-2-14",
+"08c43419-de20-4dc2-96b8-2d275d45ac80":"please attach delivery notes",
+"cbfb69ad-f600-4e1f-b7f6-9db26c54ca7c":"20000",
+"b02fe3ec-7d77-4e3f-8619-d8b5a6808812":"Apple",
+"04721fe4-5d10-11ee-af6e-002b67d98d9c":"{\"99a07e88-f7f1-4cda-8ed7-53b68725d7c7\":\"cables\"}"}
+
+]
+
+
+{
+  "a1ce63d1-fd84-408c-aa79-3678e34a6fe5": "order number",
+  "770e7984-4be6-11ee-843b-002b67d98d9c": "note",
+  "bff8b823-154f-45b5-82f6-a2e51761c496": "totals",
+  "587405a6-479b-11ee-b643-002b67d98d9c": "image",
+  "5d2446c7-f715-4dde-829f-0f70c97c353b": "order date",
+  "04721fe4-5d10-11ee-af6e-002b67d98d9c": {
+    "42b361d7-876e-40ea-9178-8a1489ac30b4": "products",
+    "520ee15a-5d16-11ee-af6f-002b67d98d9c": "price",
+    "cf6f241e-5bbd-414b-a60c-7e8cbf6ffa62": "discount"
+  },
+  "711cbf51-d237-43b0-b2af-a0833a5ffbbc": "customer"
+}
+
+
+const fakeArray2 = [
+    {
+        "uuid-7777": "23-0002",
+        "uuid-12345": "apple market",
+        "uuid-7399": [{ "uuid-12346": "cake", "uuid-12333": "300", "uuid-12334": "0.1" }, { "uuid-12350": "pure cake", "uuid-12333": "400", "uuid-12334": "0.2" }],
+        "uuid-22226": ""
+    },
+    {
+        "uuid-7778": "23-0001",
+        "uuid-12347": "ABC mart",
+        "uuid-11112": [{ "uuid-12348": "cheese cake", "uuid-12351": "560", "uuid-12358": "0" }],
+        "uuid-22236": "postpone delivery"
+    }
+];
+
+
+↑
+↑
+↑
+
+const fakeArray_before = [
+    {
+        "uuid-7777": "23-0002",
+        "uuid-12345": "apple market",
+        "uuid-12399": { "uuid-12346": "cake", "uuid-12333": "300", "uuid-12334": "0.1" },
+        "uuid-12398": { "uuid-12350": "pure cake", "uuid-12333": "400", "uuid-12334": "0.2" },
+        "uuid-22226": ""
+    },
+    {
+        "uuid-7778": "23-0001",
+        "uuid-12347": "ABC mart",
+        "uuid-11112": [{ "uuid-12348": "cheese cake", "uuid-12351": "560", "uuid-12358": "0" }],
+        "uuid-22236": "postpone delivery"
+    }
+];
