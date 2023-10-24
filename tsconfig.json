@@ -1,0 +1,24 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "outDir": "./build",
+    "skipLibCheck": true,
+    "allowJs": true
+    // "paths": {
+    //   "react": [ "./node_modules/@types/react" ]
+    // }
+  },
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "./plugins/**/*",
+    "./typings/**/*",
+    "./build/**/*"
+  ]
+}

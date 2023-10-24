@@ -1,0 +1,41 @@
+ [
+    {
+      "id":"23-0002",
+       "uuid-11111":{"uuid-12345":"apple market"},
+       "uuid-11112":{"uuid-12346":"cake","uuid-12350":"pure cake"}
+    },
+    {
+      "id":"23-0001",
+       "uuid-11111":{"uuid-12347":"ABC mart"},
+       "uuid-11112":{"uuid-12348":"cheese cake"}
+    }
+ ]
+ [
+   {
+     "id":"23-0002",
+      "uuid-11111":{"uuid-12345":"apple market"},
+      "uuid-11112":[{"uuid-11113":{"uuid-12346":"cake"},"uuid-11114":{"uuid-12333":"300"},"uuid-11115":{"uuid-12334":"0.1"}},{"uuid-11113":{"uuid-12350":"pure cake"},"uuid-11114":{"uuid-12333":"400"},"uuid-11115":{"uuid-12334":"0.2"}}]
+   },
+   {
+     "id":"23-0001",
+      "uuid-11111":{"uuid-12347":"ABC mart"},
+      "uuid-11112":{"uuid-12348":"cheese cake"}
+   }
+]
+
+
+ [
+    {
+      
+      "fieldid":"uuid-11112",
+       "fieldname":"product",
+       "datatype":"string",
+       "isList":"false"
+    },
+    {
+      "fieldid":"uuid-11111",
+       "fieldname":"customer",
+       "datatype":"string",
+       "isList":"false"
+    }
+ ]

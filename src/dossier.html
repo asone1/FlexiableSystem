@@ -1,0 +1,41 @@
+<p style="padding-left: 8px;">
+    <span style="font-family: tahoma, arial, helvetica, sans-serif; ">
+    <strong>
+    <span id="tina123">
+    Yearly Sales by Category
+    </span>
+    </strong>
+    </span>
+    </p>
+    
+    <script>
+    var allElements = document.getElementsByTagName("*");
+    
+    var s="";
+    
+    
+    
+    
+    
+    // $(allElements[0]).html();
+    
+//     var currentNode,
+//     ni = document.createNodeIterator(document.documentElement, NodeFilter.SHOW_ELEMENT);
+
+// while(currentNode = ni.nextNode()) {
+//     s+=currentNode.nodeValue+":";
+//     s+=currentNode.nodeName+"<br>";
+    
+// }
+
+document.getHTML= function(who){
+    var txt, ax, el= document.createElement("div");
+    el.appendChild(who.cloneNode(false));
+    txt= el.innerHTML;      
+    ax= txt.indexOf('>')+1;
+    txt= txt.substring(0, ax)+who.innerHTML+ txt.substring(ax);
+    el= null;
+    return txt.replace(/>/g,'>\n');
+}
+document.getElementById("tina123").innerHTML =s;
+        </script>
